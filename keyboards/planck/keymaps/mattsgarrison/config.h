@@ -1,7 +1,85 @@
 #pragma once
 
+#define RICK_ROLL_SONG  \
+     Q__NOTE(_F4),      \
+     Q__NOTE(_G4),      \
+     Q__NOTE(_BF4),     \
+     Q__NOTE(_G4),      \
+     HD_NOTE(_D5),      \
+     HD_NOTE(_D5),      \
+     W__NOTE(_C5),      \
+     S__NOTE(_REST),    \
+     Q__NOTE(_F4),      \
+     Q__NOTE(_G4),      \
+     Q__NOTE(_BF4),     \
+     Q__NOTE(_G4),      \
+     HD_NOTE(_C5),      \
+     HD_NOTE(_C5),      \
+     W__NOTE(_BF4),     \
+     S__NOTE(_REST),    \
+     Q__NOTE(_F4),      \
+     Q__NOTE(_G4),      \
+     Q__NOTE(_BF4),     \
+     Q__NOTE(_G4),      \
+     W__NOTE(_BF4),     \
+     H__NOTE(_C5),      \
+     H__NOTE(_A4),      \
+     H__NOTE(_A4),      \
+     H__NOTE(_G4),      \
+     H__NOTE(_F4),      \
+     H__NOTE(_F4),      \
+     W__NOTE(_C5),      \
+     W__NOTE(_BF4)
+
+#define COIN_SONG    \
+     E__NOTE(_A5  ), \
+     HD_NOTE(_E6  ),
+
+#define ONE_UP_SONG \
+     Q__NOTE(_E6  ),  \
+     Q__NOTE(_G6  ),  \
+     Q__NOTE(_E7  ),  \
+     Q__NOTE(_C7  ),  \
+     Q__NOTE(_D7  ),  \
+     Q__NOTE(_G7  ),
+
+#define MARIO_MUSHROOM_SONG \
+     S__NOTE(_C5 ), \
+     S__NOTE(_G4 ), \
+     S__NOTE(_C5 ), \
+     S__NOTE(_E5 ), \
+     S__NOTE(_G5 ), \
+     S__NOTE(_C6 ), \
+     S__NOTE(_G5 ), \
+     S__NOTE(_GS4), \
+     S__NOTE(_C5 ), \
+     S__NOTE(_DS5), \
+     S__NOTE(_GS5), \
+     S__NOTE(_DS5), \
+     S__NOTE(_GS5), \
+     S__NOTE(_C6 ), \
+     S__NOTE(_DS6), \
+     S__NOTE(_GS6), \
+     S__NOTE(_DS6), \
+     S__NOTE(_AS4), \
+     S__NOTE(_D5 ), \
+     S__NOTE(_F5 ), \
+     S__NOTE(_AS5), \
+     S__NOTE(_D6 ), \
+     S__NOTE(_F6 ), \
+     S__NOTE(_AS6), \
+     S__NOTE(_F6 )
+
+#define CLOSE_ENCOUNTERS_5_NOTE_SONG  \
+ 	Q__NOTE(_D5),                \
+ 	Q__NOTE(_E5),                \
+ 	Q__NOTE(_C5),                \
+ 	Q__NOTE(_C4),                \
+ 	Q__NOTE(_G4),
+
 #ifdef AUDIO_ENABLE
-    #define STARTUP_SONG SONG(PLANCK_SOUND)
+    #define STARTUP_SONG SONG(CLOSE_ENCOUNTERS_5_NOTE_SONG)
+    //#define STARTUP_SONG SONG(PLANCK_SOUND)
     // #define STARTUP_SONG SONG(NO_SOUND)
 
     #define DEFAULT_LAYER_SONGS { SONG(QWERTY_SOUND), \
@@ -29,7 +107,7 @@
    - Virtual sustain, portamento, and modulation wheel
    - etc.
 */
-// #define MIDI_ADVANCED
+#define MIDI_ADVANCED
 
 /* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
 //#define MIDI_TONE_KEYCODE_OCTAVES 2
