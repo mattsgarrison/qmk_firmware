@@ -97,9 +97,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_LAYER3] = LAYOUT_planck_grid(
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_ACL0,
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_ACL1,
-  _______, _______, _______, _______, _______, _______, _______, _______, KC_BTN1, KC_BTN2, _______, KC_ACL2,
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_ACL2, KC_ACL1, KC_ACL0,
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______, _______, _______, KC_BTN1, KC_BTN2, _______, KC_BTN1,
   _______, _______, _______, _______, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R
 ),
 
@@ -139,6 +139,42 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         print("mode just switched to qwerty and this is a huge string\n");
         set_single_persistent_default_layer(_QWERTY);
+      }
+      return false;
+      break;
+    case LAYER3:
+      if (record->event.pressed) {
+        rgblight_setrgb(RGB_AZURE);
+        layer_on(_LOWER);
+        update_tri_layer(_LOWER, _RAISE, _ADJUST);
+      } else {
+        rgblight_setrgb(RGB_RED);
+        layer_off(_LOWER);
+        update_tri_layer(_LOWER, _RAISE, _ADJUST);
+      }
+      return false;
+      break;
+    case LOWER:
+      if (record->event.pressed) {
+        rgblight_setrgb(RGB_GREEN);
+        layer_on(_LOWER);
+        update_tri_layer(_LOWER, _RAISE, _ADJUST);
+      } else {
+        rgblight_setrgb(RGB_RED);
+        layer_off(_LOWER);
+        update_tri_layer(_LOWER, _RAISE, _ADJUST);
+      }
+      return false;
+      break;
+    case RAISE:
+      if (record->event.pressed) {
+        rgblight_setrgb(RGB_BLUE);
+        layer_on(_RAISE);
+        update_tri_layer(_LOWER, _RAISE, _ADJUST);
+      } else {
+        rgblight_setrgb(RGB_RED);
+        layer_off(_RAISE);
+        update_tri_layer(_LOWER, _RAISE, _ADJUST);
       }
       return false;
       break;
